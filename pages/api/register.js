@@ -9,11 +9,15 @@ export default async function handler (req,res){
         
         const {name , email , password} = req.body;
 
-        const newUser = await User.create({name , email , password})
-                
-        
+        /*  */
 
-        res.status(200).json({newUser})
+        const user = await User.findOne({email})
+        
+        if (user){return res.json({msg : "this email already exist !"})} 
+        
+        const newUser = await User.create({name , email , password})
+           
+        res.status(200).json({newUser,msgSucc : "register successfully"})
         
 
     }

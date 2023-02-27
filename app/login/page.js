@@ -96,6 +96,20 @@ const Login = () => {
                 <p>
                   Not a member? <Link href="/register">Register</Link>
                 </p>
+
+                <p> Or sign up with </p>
+                
+                <button 
+                  className="btn btn-link btn-floating-mx-1" 
+                  type="button"
+                  onClick={()=> signIn('google')}
+                >  
+                  
+                  <i className="fab fa-google"></i>
+                
+                </button>
+
+
               </div>
             </form>
           </div>

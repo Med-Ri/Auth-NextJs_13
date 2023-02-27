@@ -3,7 +3,7 @@ import CredentialsProvider from "next-auth/providers/credentials";
 import User from '../../../models/userSchema'
 import bcrypt from 'bcryptjs'
 import dbConnect from "../../../config/dbConnect";
-
+import GoogleProvider from "next-auth/providers/google";
 
 
 
@@ -12,6 +12,12 @@ export default NextAuth({
         strategy : 'jwt'
     },
     providers : [
+
+        GoogleProvider({
+            clientId: process.env.GOOGLE_CLIENT_ID,
+            clientSecret: process.env.GOOGLE_CLIENT_SECRET
+        }) ,
+
         CredentialsProvider({
             async authorize(credentials,req){
                 

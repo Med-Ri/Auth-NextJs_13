@@ -1,10 +1,11 @@
 import Alert from 'react-bootstrap/Alert';
 
-function AlertMe({err}) {
+function AlertMe({err , varient , succ}) {
   return (
     <>
-        <Alert variant='danger'>
+        <Alert variant={varient}>
           {err}
+          {succ}
         </Alert>
       
     </>

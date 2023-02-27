@@ -8,7 +8,7 @@ import React from "react";
 const Header = () => {
   
   const {data} = useSession()
-  
+  console.log(data)
 
   return (
     <nav className="navbar navbar-light bg-light row justify-content-center sticky-top">
@@ -23,9 +23,21 @@ const Header = () => {
           {data?.user ? 
              <>
              
-             <span style={{ marginRight: "15px" }}>Hi,[{data.user.name}]</span>
+              <span style={{ marginRight: "15px" }}>
+                
+                <img src = {data.user.image} width="25" height="25" alt="user Img"/>
+                Hi,[{data.user.name}]
+                
+              </span>
               
-              <span style={{cursor : "pointer"}} onClick={()=> signOut()} >
+              <span style={{cursor : "pointer" }}  >
+                {" "}
+                
+                <Link style={{textDecoration:'none' , color : "black" , marginRight : "10px" }} href="/dashboard">  Dashboard </Link>  
+                
+             </span>
+
+             <span style={{cursor : "pointer"}} onClick={()=> signOut()} >
                 {" "}
                 
                   Logout
